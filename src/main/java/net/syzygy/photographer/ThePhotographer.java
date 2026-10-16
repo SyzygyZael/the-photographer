@@ -3,6 +3,8 @@ package net.syzygy.photographer;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.util.Identifier;
+import net.syzygy.photographer.entity.ModEntities;
+import net.syzygy.photographer.util.ModRegistries;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,7 +16,8 @@ public class ThePhotographer implements ModInitializer {
 	public void onInitialize() {
 		LOGGER.info("Hello Fabric world!");
 
-
+		ModEntities.registerModEntites();
+		ModRegistries.registerModStuffs();
 	}
 
 	public static Identifier makeID(String path) {

@@ -3,22 +3,49 @@ plugins {
 	id 'maven-publish'
 }
 
+version = project.mod_version
+group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
+
 repositories {
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
+
+	maven {
+		url 'https://maven.fabricmc.net/'
+	}
+	maven {
+		url 'https://libraries.minecraft.net/'
+	}
+	mavenCentral()
+
+	// Modrinth maven
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = "https://api.modrinth.com/maven"
+			}
+		}
+		filter {
+			includeGroup "maven.modrinth"
+		}
+	}
+
+	flatDir {
+		dirs 'libs'
+	}
 }
 
-loom {
-	splitEnvironmentSourceSets()
-
-	mods {
-		"the-photographer" {
-			sourceSet sourceSets.main
-			sourceSet sourceSets.client
-		}
+fabricApi {
+	configureDataGeneration {
+		client = true
 	}
 }
 
@@ -31,7 +58,7 @@ dependencies {
 
 	// Local YACL jar for compile only (don't include in final build)
 	// implementation files('libs/midnightlib-fabric-1.5.3.jar')
-	// modImplementation("maven.modrinth:midnightlib:1.5.3-fabric")
+	modImplementation("maven.modrinth:midnightlib:1.5.3-fabric")
 }
 
 processResources {
@@ -44,7 +71,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 21
+	it.options.release = 17
 }
 
 java {
@@ -53,8 +80,8 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_21
-	targetCompatibility = JavaVersion.VERSION_21
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {

@@ -3,7 +3,6 @@ package net.syzygy.photographer.event;
 import net.minecraft.client.model.TexturedModelData;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 
-import java.beans.EventHandler;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 

@@ -21,17 +21,16 @@ public class ShaheerModel extends EntityModel<ShaheerRenderState> {
 	private final ModelPart left_leg;
 	private final ModelPart camera;
 	public ShaheerModel(ModelPart root) {
-        super(root);
-
-        this.shaheer = root.getChild("shaheer");
-		this.body = root.getChild("body");
-		this.head = root.getChild("head");
-		this.torso = root.getChild("torso");
-		this.right_arm = root.getChild("right_arm");
-		this.left_arm = root.getChild("left_arm");
-		this.right_leg = root.getChild("right_leg");
-		this.left_leg = root.getChild("left_leg");
-		this.camera = root.getChild("camera");
+		super(root);
+		this.shaheer = root.getChild("shaheer");
+		this.body = this.shaheer.getChild("body");
+		this.head = this.body.getChild("head");
+		this.torso = this.body.getChild("torso");
+		this.right_arm = this.body.getChild("right_arm");
+		this.left_arm = this.body.getChild("left_arm");
+		this.right_leg = this.body.getChild("right_leg");
+		this.left_leg = this.body.getChild("left_leg");
+		this.camera = this.body.getChild("camera");
 	}
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();

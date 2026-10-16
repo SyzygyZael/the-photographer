@@ -17,6 +17,10 @@ public class ModEntities {
             EntityType.Builder.create(ShaheerEntity::new, SpawnGroup.MONSTER)
                     .dimensions(1.0f, 2.0f).build(RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(ThePhotographer.MOD_ID, "shaheer"))));
 
+    public static void registerModEntites() {
+        ThePhotographer.LOGGER.info("Registering ModEntities for " + ThePhotographer.MOD_ID);
+    }
+
     private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
         RegistryKey<EntityType<?>> key = RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(ThePhotographer.MOD_ID, name));
 

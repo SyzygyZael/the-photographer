@@ -19,18 +19,11 @@
 			"net.syzygy.photographer.ThePhotographer"
 		],
 		"client": [
-			"net.syzygy.photographer.client.ThePhotographerClient"
+			"net.syzygy.photographer.ThePhotographerClient"
 		]
 	},
-	"mixins": [
-		"the-photographer.mixins.json",
-		{
-			"config": "the-photographer.client.mixins.json",
-			"environment": "client"
-		}
-	],
 	"depends": {
-		"fabricloader": ">=0.19.5",
+		"fabricloader": ">=0.19.3",
 		"minecraft": "~1.21.11",
 		"java": ">=21",
 		"fabric-api": "*"
