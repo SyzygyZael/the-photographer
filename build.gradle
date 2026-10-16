@@ -24,12 +24,14 @@ loom {
 
 dependencies {
 	// To change the versions see the gradle.properties file
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings loom.officialMojangMappings()
+	minecraft "net.minecraft:minecraft:${project.minecraft_version}"
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	// Local YACL jar for compile only (don't include in final build)
+	// implementation files('libs/midnightlib-fabric-1.5.3.jar')
+	// modImplementation("maven.modrinth:midnightlib:1.5.3-fabric")
 }
 
 processResources {
