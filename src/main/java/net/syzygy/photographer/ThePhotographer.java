@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.util.Identifier;
 import net.syzygy.photographer.entity.ModEntities;
+import net.syzygy.photographer.sound.ModSounds;
 import net.syzygy.photographer.util.ModRegistries;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,7 @@ public class ThePhotographer implements ModInitializer {
 
 		ModEntities.registerModEntites();
 		ModRegistries.registerModStuffs();
+		ModSounds.registerSoundEvents();
 	}
 
 	public static Identifier makeID(String path) {

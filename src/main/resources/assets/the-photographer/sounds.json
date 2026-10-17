@@ -1,0 +1,8 @@
+{
+  "camera_shutter": {
+    "subtitle": "sounds.camera_shutter",
+    "sounds": [
+      "the-photographer:camera_shutter_sound_effect"
+    ]
+  }
+}
